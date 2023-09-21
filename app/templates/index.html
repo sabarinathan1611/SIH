@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SIH</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="stylesheet" href="/static/css/test.css" />
+    <!-- <link rel="stylesheet" href="/static/css/inuput.css" />  -->
+  </head>
+
+  <body>
+    <nav>
+      <h6 class="tname">Future Forge</h6>
+    </nav>
+    <div class="login-box">
+      <h2>Enter URL</h2>
+      <form action="/result" method="post">
+        <div class="user-box">
+          <input type="text" name="url" required="" id="userInput" />
+          <label>URL</label>
+        </div>
+
+        <Button onclick="passInputValue()" type="submit">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Submit
+        </Button>
+      </form>
+    </div>
+  </body>
+  <script>
+// function passInputValue() {
+//   var userInput = document.getElementById("userInput").value;
+//   console.log(userInput)
+//   if (userInput != null) {
+//     var data = { url: userInput };
+//     fetch("/result", {
+//       method: "GET",
+//       headers: {
+//         "Content-Type": "application/json", // Set the correct Content-Type
+//       },
+//       body: JSON.stringify(data),
+//     })
+//       .then((response) => response.json())
+//       .then((data) => {
+//         // Handle the response data here
+//       })
+//       .catch((error) => {
+//         // Handle errors here
+//       });
+//   } else {
+//     // Handle the case where the input is not a valid URL
+//     console.log("Invalid URL:", userInput);
+//     // You can display an error message to the user or take any other appropriate action
+//   }
+// }
+
+
+  </script>
+    <script>
+      function passInputValue() {
+          var userInput = document.getElementById('userInput').value;
+          localStorage.setItem('userInput', userInput);
+      }
+  </script>
+</html>
