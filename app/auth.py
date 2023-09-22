@@ -1,9 +1,8 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from werkzeug.security import check_password_hash, generate_password_hash
-from flask_login import login_user
 from .models import User  # Import the User model
 from . import db  # Import the database instance
-
+from flask_login import login_required, login_user, logout_user, current_user
 auth = Blueprint('auth', __name__)
 
 @auth.route('/login', methods=['GET', 'POST'])
@@ -43,3 +42,7 @@ def signup():
             flash('Email already exists', category='error')
     return render_template('signup.html')
 
+@auth.route('/logout', methods=['GET', 'POST'])
+def logout():
+    logout_user()
+    return redirect(url_for('auth.login'))
